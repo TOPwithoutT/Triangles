@@ -2,17 +2,16 @@ from __future__ import annotations
 from typing import Union
 import argparse
 import sys
+import math
 
 Number = Union[int, float]
 
 
 def _valid_number(x: Number) -> bool:
-    try:
-        if isinstance(x, bool):
-            return False
-        return float(x) > 0.0
-    except (TypeError, ValueError):
+    if isinstance(x, bool) or not isinstance(x, (int, float)):
         return False
+    xf = float(x)
+    return math.isfinite(xf) and xf > 0.0
 
 
 def _is_triangle(a: float, b: float, c: float) -> bool:
@@ -65,7 +64,7 @@ def _to_number(s: str) -> Number | None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = _parse_args(argv or sys.argv[1:])
+    args = _parse_args(sys.argv[1:] if argv is None else argv)
 
     if len(args.sides) == 0:
 
