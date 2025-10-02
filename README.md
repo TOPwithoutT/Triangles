@@ -7,7 +7,6 @@
 - Static analysis: pylint triangles.py
 
 - Coverage: coverage erase  
-
             coverage run -m pytest  
-              
-            coverage report -m && coverage html  
+            coverage report -m  
+            coverage html  
