@@ -1,0 +1,12 @@
+[MASTER]
+ignore-patterns=^\.venv/,.*/site-packages/,.*/build/
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    missing-function-docstring,
+    too-few-public-methods,
+    invalid-name
+
+[FORMAT]
+max-line-length=100
